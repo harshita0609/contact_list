@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>
+        <%=title%>
+
+    </title>
+<!-- 
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- <style>
+        body{
+            color: blue;
+            /* text-align: center; */
+        }
+    </style> -->
+
+    <link rel ="stylesheet" href="/css/home.css">
+
+
+</head>
+
+<body>
+    <div class="main">
+
+    
+    <h1 class ="page-heading"><i class="fas fa-address-book"></i> MY CONTACT LIST</h1>
+
+    <div>
+
+        <ul>
+            <% for(let i of contact_list) { %>
+
+                <li class="contact">
+                    <div class="details">
+                        <p><%= i.name%></p>
+                        <p><%= i.phone%></p>
+                    </div>
+
+                    <div class="delete-button">
+                        <!-- <a href="/delete-contact/?phone=<%=i.phone%>&name=<%=i.name%>"> -->
+                        <a href="/delete-contact/?id=<%=i._id%>">
+                            <i class="fas fa-window-close"></i>
+                        </a>
+                        
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div>
+        <form action="/create-contact" method="POST">
+
+            <input type="text" name="name" placeholder="enter name" required>
+            <input type="number" name="phone" placeholder="enter phone" required>
+
+            <button type="submit" >ADD CONTACT</button>
+
+
+
+        </form>
+    </div>
+</div>
+
+    <script type="text/javascript" src="/js/home.js"></script>
+    
+
+</body>
+
+</html>
